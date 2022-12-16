@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProjectName;
+using BakerySeller.Model;
 
-namespace ProjectName.Tests
+namespace BakerySeller.Tests
 {
   [TestClass]
-  public class ClassNameTests: IDisposable
+  public class VendorTests: IDisposable
   {
 
     public void Dispose()
@@ -18,14 +18,7 @@ namespace ProjectName.Tests
     [TestMethod]
     public void VendorConstructor_CreateInstanceOfVendor_Vendor()
     {      
-      Vendor newVendor = new Vendor("test vendor");
-      Assert.AreEqual(typeof(Vendor), newVendor.GetType());
-    }
-
-    [TestMethod]
-    public void VendorConstructor_CreateInstanceOfVendor_Vendor()
-    {      
-      Vendor newVendor = new Vendor("test vendor");
+      Vendor newVendor = new Vendor("test vendor","test vendor description");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
@@ -42,28 +35,28 @@ namespace ProjectName.Tests
     [TestMethod]
     public void VendorConstructor_AssignIdToVendorInstance_Int()
     { 
-      int id = 0;
-      Vendor newVendor = new Vendor(name, description);
+      int id = 1;
+      Vendor newVendor = new Vendor("vendor1","vendor1 description");
       Assert.AreEqual(id, newVendor.Id);
     }
 
     public void VendorConstructor_AddVendorToVendorList_List()
     {
-      Vendor newVendor = new Vendor("vendor1","vendor1 description");
-      Vendor newVendor = new Vendor("vendor2","vendor2 description");
-      Vendor newVendor = new Vendor("vendor2","vendor2 description");
+      Vendor newVendor1 = new Vendor("vendor1","vendor1 description");
+      Vendor newVendor2 = new Vendor("vendor2","vendor2 description");
+      Vendor newVendor3 = new Vendor("vendor3","vendor3 description");
       List<Vendor> expected = new List<Vendor> {newVendor1, newVendor2, newVendor3};
       CollectionAssert.AreEqual(expected, Vendor.GetAll());
     }
 
-    public void AddOrder_AddOrderToVendorsOrderList_List()
-    {
-      Vendor newVendor = new Vendor("vendor1","vendor1 description");
-      Order newOrder = new Order("title", "description", 1, 1);
-      newVendor.AddOrder(newOrder);
-      List<Order> expected = new List<Order> {newOrder};
-      CollectionAssert.AreEqual(expected, newVendor.Orders);
-    }
+    // public void AddOrder_AddOrderToVendorsOrderList_List()
+    // {
+    //   Vendor newVendor = new Vendor("vendor1","vendor1 description");
+    //   Order newOrder = new Order("title", "description", 1, 1);
+    //   newVendor.AddOrder(newOrder);
+    //   List<Order> expected = new List<Order> {newOrder};
+    //   CollectionAssert.AreEqual(expected, newVendor.Orders);
+    // }
 
   }
 }
