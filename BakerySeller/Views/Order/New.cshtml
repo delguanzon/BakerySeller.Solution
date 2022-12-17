@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pierre's Bake Shop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Welcome! Pierre's Bake Shop!</h1>
+    <form action="/vendors/@Model.Id/order" method="post">
+        <input type="hidden" name="vendorId" value="@Model.Id">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

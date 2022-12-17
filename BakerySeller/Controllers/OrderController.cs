@@ -5,28 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using BakerySeller.Models;
 
 namespace BakerySeller.Controllers
 {
-    [Route("[controller]")]
-    public class OrdersController : Controller
+
+  public class OrderController : Controller
+  {
+    [HttpGet("/vendors/{vendorId}/orders/new")]
+    public ActionResult New(int vendorId)
     {
-        private readonly ILogger<OrdersController> _logger;
-
-        public OrdersController(ILogger<OrdersController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View("Error!");
-        }
+      Vendor vendor = Vendor.Find(vendorId);
+      return View(vendor);
     }
+  }
+
 }

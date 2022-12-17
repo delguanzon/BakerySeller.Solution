@@ -33,5 +33,28 @@ namespace BakerySeller.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet("/vendors/{id}")]
+        public ActionResult Show(int id)
+        {
+            Dictionary<string, object> model = new Dictionary<string, object>();
+            Vendor selectedVendor = Vendor.Find(id);
+            model.Add("vendor", selectedVendor);
+            model.Add("orders", selectedVendor.GetOrders());
+            return View(model);
+        }
+
+        [HttpPost("/vendors/{vendorId}/order")]
+        public ActionResult Create(int vendorId, string title, string description, int price)
+        {
+            Dictionary<string, object> model = new Dictionary<string, object>();
+            Vendor vendor = Vendor.Find(vendorId);
+            Order newOrder = new Order(title, description, price);
+            vendor.AddOrder(newOrder);
+            List<Order> vendorOrders = vendor.GetOrders();
+            model.Add("orders", vendorOrders);
+            model.Add("vendor", vendor);
+            return View("Show", model);
+        }
+
     }
 }

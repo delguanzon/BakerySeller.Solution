@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pierre's Bake Shop</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Welcome! Pierre's Bake Shop!</h1>
+    
+    @using BakerySeller.Models
+
+    <div>
+        <h1>@Model["vendor"].Name : Order Page</h1>
+
+        <ul>
+            @foreach(Order order in Model["orders"])
+            {
+                <li>@order.Title
+                    <ol>
+                        <li>Description: @order.Description</li>
+                        <li>Price: @order.Price</li>
+                    </ol>
+                </li>
+            }
+        </ul>
+    <p><a href="/vendors/@Model["vendor"].Id/orders/new">Add a new order</a></p>
+    <p><a href="/vendors">Back to Vendor List</a></p>
+    <p><a href="/">Back to Homepage</a></p>
+    
+    </div>
+</body>
+
+</html>
