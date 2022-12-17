@@ -9,6 +9,8 @@
 * .Net 6 SDK
 * C#
 * MSTest
+* ASP.Net MVC
+* Razor
 
 ## Description
 
