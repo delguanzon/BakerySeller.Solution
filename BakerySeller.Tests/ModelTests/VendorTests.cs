@@ -49,14 +49,15 @@ namespace BakerySeller.Tests
       CollectionAssert.AreEqual(expected, Vendor.GetAll());
     }
 
-    // public void AddOrder_AddOrderToVendorsOrderList_List()
-    // {
-    //   Vendor newVendor = new Vendor("vendor1","vendor1 description");
-    //   Order newOrder = new Order("title", "description", 1, 1);
-    //   newVendor.AddOrder(newOrder);
-    //   List<Order> expected = new List<Order> {newOrder};
-    //   CollectionAssert.AreEqual(expected, newVendor.Orders);
-    // }
+    [TestMethod]
+    public void AddOrder_AddOrderToVendorsOrderList_List()
+    {
+      Vendor newVendor = new Vendor("vendor1","vendor1 description");
+      Order newOrder = new Order("title", "description", 1);
+      newVendor.AddOrder(newOrder);
+      List<Order> expected = new List<Order> {newOrder};
+      CollectionAssert.AreEqual(expected, newVendor.GetOrders());
+    }
 
   }
 }

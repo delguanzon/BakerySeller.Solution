@@ -9,6 +9,8 @@ namespace BakerySeller.Models
     public string Description { get; set; }
     private static List<Vendor> _instances = new List<Vendor> { };
     public int Id { get; }
+    private List<Order> _orders = new List<Order> { };
+
     public Vendor(){
       _instances.Add(this);
       Id = _instances.Count;
@@ -30,6 +32,16 @@ namespace BakerySeller.Models
     public static void ClearAll()
     {
       _instances.Clear();
+    }
+
+    public void AddOrder(Order order)
+    {
+      _orders.Add(order);
+    }
+
+    public List<Order> GetOrders()
+    {
+      return _orders;
     }
   }
 }
