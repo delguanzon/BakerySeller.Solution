@@ -44,6 +44,14 @@ namespace BakerySeller.Tests
         }
 
         [TestMethod]
+        public void OrderConstructor_AssignCurrentDateToDateProperty_DateTime()
+        {
+            DateTime expected = DateTime.Now;
+            Order newOrder = new Order("title", "description", 30);
+            Assert.AreEqual(expected.ToShortDateString(), newOrder.Date.ToShortDateString());
+        }
+
+        [TestMethod]
         public void OrderConstructor_AddOrderToOrderInstances_List()
         {
             Order newOrder1 = new Order("order1", "description1", 30);
