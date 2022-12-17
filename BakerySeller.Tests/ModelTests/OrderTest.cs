@@ -8,8 +8,14 @@ using BakerySeller.Models;
 namespace BakerySeller.Tests 
 {
     
-    public class OrderTest
-    {
+    [TestClass]
+    public class OrderTest:IDisposable
+    {   
+        public void Dispose()
+        {
+            Order.ClearAll();
+        }
+        
         [TestMethod]
         public void OrderConstructor_CreateInstanceOfOrder_Order()
         {
