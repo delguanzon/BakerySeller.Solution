@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ProjectName.Controllers
+namespace BakerySeller.Controllers
 {
     [Route("[controller]")]
-    public class NameController : Controller
+    public class OrdersController : Controller
     {
-        private readonly ILogger<NameController> _logger;
+        private readonly ILogger<OrdersController> _logger;
 
-        public NameController(ILogger<NameController> logger)
+        public OrdersController(ILogger<OrdersController> logger)
         {
             _logger = logger;
         }
