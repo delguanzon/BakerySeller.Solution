@@ -59,6 +59,7 @@ namespace BakerySeller.Tests
       CollectionAssert.AreEqual(expected, newVendor.GetOrders());
     }
 
+    [TestMethod]
     public void Find_FindVendorById_Vendor()
     {
       Vendor newVendor1 = new Vendor("vendor1","vendor1 description");
