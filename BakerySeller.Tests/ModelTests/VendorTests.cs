@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BakerySeller.Model;
+using BakerySeller.Models;
 
 namespace BakerySeller.Tests
 {

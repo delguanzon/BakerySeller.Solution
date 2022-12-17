@@ -9,7 +9,17 @@
 </head>
 
 <body>
-    <h1>Welcome! Pierre's Bake Shop!</h1>
+    @using BakerySeller.Models
+    <h1>Available Vendors:</h1>
+    @foreach (Vendor vendor in Model) {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <a href="/vendor/@vendor.Id"><h5 class="card-title">@vendor.Name</h5></a>
+                <p class="card-text">@vendor.Description</p>
+            </div>
+        </div>
+    }
+
     <a href='/vendors/new'>Add a New Vendor</a>
     <br>
 </body>
